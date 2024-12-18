@@ -48,17 +48,8 @@ python mcts_agent.py --env env0 --task 2
 
 ## Simulation Setup
 Install NVIDIA's [Omniverse Isaac Sim](https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/install_workstation.html). **Please make sure you have the 2022.2.0 version of Isaac Sim installed.** We have added controllers for the quadrotor and the robotic arm on the back of the robotic dog, so we are providing the compressed package of the Isaac Sim used [here](https://drive.google.com/file/d/1wmqztsn8vwgHB_fL4LMamfuiDY7nXrlT/view?usp=drive_link).
-The version of OmniGibson we are using is v0.2.1. Clone the [OmniGibson](https://github.com/StanfordVL/OmniGibson) repository:
-```bash
-git clone https://github.com/StanfordVL/OmniGibson.git
-cd OmniGibson
-git checkout aa8b8701e6abc3f2310a883a0ce2b635405347c7
-```
-Move the `assets/Benchmark` directory to `OmniGibson/` using this command:
-```
-cd ..
-mv assets/Benchmark OmniGibson/
-```
+We are using OmniGibson version v0.2.1, with modifications made on top of this version. Additionally, the ``assets/Benchmark`` directory has been added. Consequently, we have uploaded the modified OmniGibson folder to the repository.
+
 Download the heterogeneous robot asset files [here](https://drive.google.com/drive/folders/1CRX7mNndvNpty7dC37yHDOr25a0Xc-Ge?usp=drive_link) and move them to the `Benchmark` folder in `assets`.
 
 Setup a virtual conda environment to run `OmniGibson` and Download `OmniGibson` dataset (within the conda env):
