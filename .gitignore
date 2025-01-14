@@ -7,7 +7,6 @@ __pycache__/
 *.egg-info/
 .DS_Store
 *.pth
-src/
 pw
 *.o
 *.ipynb
@@ -17,7 +16,6 @@ npz/
 *.npy
 dev/transfer.c
 *.jpg
-*.png
 *.bmp
 *.bak
 *.zip
