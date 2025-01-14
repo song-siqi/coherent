@@ -5,7 +5,7 @@
 *.egg-info/
 .DS_Store
 *.pth
-src/
+
 pw
 *.o
 *.ipynb
@@ -15,7 +15,7 @@ npz/
 *.npy
 dev/transfer.c
 *.jpg
-*.png
+
 *.bmp
 *.bak
 *.zip
@@ -70,7 +70,7 @@ gibson/assets
 *.pdf
 .cache
 notebook
-build
+
 dist
 
 # Directories used for QC pipeline
