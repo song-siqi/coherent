@@ -32,7 +32,7 @@ Install dependencies:
 pip install -r requirments.txt
 ```
 ## Run
-Add your openai api_key and organization in `args.py`.
+Add your openai api_key and organization in `args.py` or `arguments.py`.
 For each methods in `src/experiment`， you can run the following command to perform the tasks in our benchmark:
 ```bash
 python main.py --env env0 --task 2
