@@ -54,6 +54,7 @@ Download the heterogeneous robot asset files [here](https://drive.google.com/dri
 
 Setup a virtual conda environment to run `OmniGibson` and Download `OmniGibson` dataset (within the conda env):
 Note: Before you run the `setup.sh`, you need to exit the conda environment first. This script file will create a new conda environment named `omnigibson`.
+
 1、Set the COHERENT_PATH and source script in your bashrc or zshrc.
 ```bash
 export COHERENT_PATH="/the_path_to_clone_the_project/COHERENT"
