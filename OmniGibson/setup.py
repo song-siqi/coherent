@@ -41,7 +41,9 @@ setup(
         "termcolor",
         "progressbar",
         "pymeshlab",
-        "click"
+        "click",
+        "rospkg",
+        "tqdm"
     ],
     tests_require=[],
     python_requires=">=3",

@@ -12,7 +12,9 @@ from omnigibson.utils.ui_utils import create_module_logger
 from omnigibson.utils.python_utils import assert_valid_key, merge_nested_dicts, create_class_from_registry_and_config,\
     Recreatable
 import sys
-sys.path.append('/home/pjlab/workspace/OmniGibson/Benchmark')
+import os
+coherent_path = os.environ.get('COHERENT_PATH')
+sys.path.append(f'{coherent_path}/OmniGibson/Benchmark')
 
 from Benchmark.agents import *
 

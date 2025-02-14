@@ -47,20 +47,30 @@ python mcts_agent.py --env env0 --task 2
 - Please note that the type of LLM you use and the number of tasks you choose will directly determine your costs.
 
 ## Simulation Setup
-Install NVIDIA's [Omniverse Isaac Sim](https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/install_workstation.html). **Please make sure you have the 2022.2.0 version of Isaac Sim installed.** We have added controllers for the quadrotor and the robotic arm on the back of the robotic dog, so we are providing the compressed package of the Isaac Sim used [here](https://drive.google.com/file/d/1wmqztsn8vwgHB_fL4LMamfuiDY7nXrlT/view?usp=drive_link).
-We are using OmniGibson version v0.2.1, with modifications made on top of this version. Additionally, the ``assets/Benchmark`` directory has been added. Consequently, we have uploaded the modified OmniGibson folder to the repository.
+Install NVIDIA's [Omniverse Isaac Sim](https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/install_workstation.html). **Please make sure you have the 2022.2.0 version of Isaac Sim installed.** We have added controllers for the quadrotor and the robotic arm on the back of the robotic dog, so we are providing the compressed package of the Isaac Sim used [here](https://drive.google.com/file/d/1wmqztsn8vwgHB_fL4LMamfuiDY7nXrlT/view?usp=drive_link). You need to extract the downloaded files to the location ``~/.local/share/ov/pkg/isaac_sim-2022.2.0``.
+We are using OmniGibson version v0.2.1, with modifications made on top of this version. Additionally, the ``Benchmark`` directory has been added. Consequently, we have uploaded the modified OmniGibson folder to the repository.
 
 Download the heterogeneous robot asset files [here](https://drive.google.com/drive/folders/1CRX7mNndvNpty7dC37yHDOr25a0Xc-Ge?usp=drive_link) and move them to the `Benchmark` folder in `assets`.
 
 Setup a virtual conda environment to run `OmniGibson` and Download `OmniGibson` dataset (within the conda env):
+Note: Before you run the `setup.sh`, you need to exit the conda environment first. This script file will create a new conda environment named `omnigibson`.
+1、Set the COHERENT_PATH and source script in your bashrc or zshrc.
+```bash
+export COHERENT_PATH="/the_path_to_clone_the_project/COHERENT"
+source /the_path_to_clone_the_project/COHERENT/OmniGibson/Benchmark/ros_hademo_ws/devel/setup.bash
+```
+2、Create the conda environment and download the dataset. 
 ```bash
 cd OmniGibson
+conda deactivate
 ./scripts/setup.sh 
 python scripts/download_datasets.py
+cp -r /the_path_to_clone_the_project/COHERENT/OmniGibson/omnigibson/assets/oven/insidq /the_path_to_clone_the_project/COHERENT/OmniGibson/omnigibson/data/og_dataset/objects/oven/
 ```
-Run the following scripts:
+3、Activate the conda environment and run the following scripts:
 ```bash
 cd Banchmark
+conda activate omnigibson
 sh run.sh
 ```
 

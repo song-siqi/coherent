@@ -3,8 +3,10 @@ import math
 import numpy as np
 
 from scipy.spatial.transform import Rotation as R
-
-
+import sys
+import os
+coherent_path = os.environ.get('COHERENT_PATH')
+sys.path.append(f'{coherent_path}/OmniGibson/Benchmark/ros_hademo_ws/src')
 ## msg
 from hademo.msg import Action
 from hademo.msg import Result, ResultInfo
