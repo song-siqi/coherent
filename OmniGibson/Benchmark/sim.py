@@ -428,17 +428,7 @@ def main(args):
 
     og.sim.enable_viewer_camera_teleoperation()
     # Update the simulator's viewer camera's pose so it points towards the robot
-    if 'grocery_store_cafe' in args.task_name:
-        # original grocery
-        og.sim.viewer_camera.set_position_orientation(
-            position=np.array([4.9, 7.72065345, 0.91041777]),
-            orientation=np.array([0.6366,-0.2268,-0.274,0.694]),
-        )
-        # updated grocery
-        # og.sim.viewer_camera.set_position_orientation(
-        #     position=np.array([7.99, 10.57, 0.71]),
-        #     orientation=np.array([0.50783615, 0.44324224, 0.4857279 , 0.55651341]),
-        # )
+
 
     if 'Merom_1_int' in args.task_name:
         # original Merom_1_int
@@ -455,21 +445,6 @@ def main(args):
 
         )
 
-    if 'restaurant_brunch' in args.task_name:
-        # original restaurant
-        og.sim.viewer_camera.set_position_orientation(
-            position=np.array([0.89, -3.33, 1.846]),
-            orientation=np.array([0.56, 0.275, 0.337, 0.7]),  # (x,y,z,w)
-
-        )
-
-    if 'Pomaria_1_int' in args.task_name:
-        # original Pomaria_1_int
-        og.sim.viewer_camera.set_position_orientation(
-            position=np.array([0.97, -3, 1.7]),
-            orientation=np.array([0.57,0.272,0.33,0.7]),  # (x,y,z,w)
-
-        )
     
     if 'house_double_floor_lower' in args.task_name:
         # original house_double_floor (garden)
@@ -495,11 +470,11 @@ def main(args):
 
 
         # original house_double_floor (outside)
-        og.sim.viewer_camera.set_position_orientation(
-            position=np.array([13.43361232, 10.73460434,  1.65867802]),
-            orientation=np.array([0.57089634, -0.34936513, -0.39396453, 0.62993121]),  # (x,y,z,w)
-        #    
-        )
+        # og.sim.viewer_camera.set_position_orientation(
+        #     position=np.array([13.43361232, 10.73460434,  1.65867802]),
+        #     orientation=np.array([0.57089634, -0.34936513, -0.39396453, 0.62993121]),  # (x,y,z,w)
+        # #    
+        # )
     ss = HASimulationSystem(task_name=args.task_name, env=env)
 
 
