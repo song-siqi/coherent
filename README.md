@@ -53,7 +53,7 @@ We are using OmniGibson version v0.2.1, with modifications made on top of this v
 
 Download the heterogeneous robot asset files [here](https://drive.google.com/drive/folders/1CRX7mNndvNpty7dC37yHDOr25a0Xc-Ge?usp=drive_link) and move them to the `Benchmark` folder in `assets`.
 
-Note: Before you run the `setup.sh`, you need to exit the conda environment first. This script file will create a new conda environment named `omnigibson`. The system we used is Ubuntu 20.04.
+Note: Before you run the `setup.sh`, you need to exit the conda environment first. This script file will create a new conda environment named `omnigibson`. The system we used is `Ubuntu 20.04` and the ros version is `ROS1 noetic`. 
 
 1、Set the COHERENT_PATH and source script in your bashrc or zshrc.
 ```bash
