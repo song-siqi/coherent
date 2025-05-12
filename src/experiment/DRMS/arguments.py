@@ -13,7 +13,7 @@ def get_args():
                     help='Select a simulation environment')
     parser.add_argument('--task', type=int, required=True, nargs='+', 
                     help='Specifies the ID of the task to run. Enter at least one parameter.')
-    parser.add_argument('--source', default='openai', choices=['huggingface', 'openai'], 
+    parser.add_argument('--source', default='openai', choices=['huggingface', 'openai', 'llm_module'], 
                     help='openai API or load huggingface models')
     parser.add_argument('--lm_id', default='gpt-4-0125-preview',
                     help='name for openai engine or huggingface model name/path')

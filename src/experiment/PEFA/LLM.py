@@ -6,6 +6,13 @@ import json
 from openai import OpenAIError, OpenAI
 import backoff
 
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
+from llm_test.llm_module import Agent, API_KEY_R17B, API_KEY_SIQI, API_URL, API_URL_R17B
+
+from types import SimpleNamespace
+
 
 class LLM:
 	def __init__(self, source, lm_id, args):
@@ -32,10 +39,30 @@ class LLM:
                     # "top_p": 1.0,
                     "n": args.n
 				}
+		
+		elif self.source == 'llm_module':
+
+			api_key = API_KEY_SIQI
+			api_url = API_URL
+			model = "gpt-4o-2024-11-20"
+
+			client = Agent(model=model, api_url=api_url, api_key=api_key)
+			if self.chat:
+				self.sampling_params = {
+					"max_tokens": args.max_tokens,
+					"temperature": args.t,
+					# "top_p": 1.0,
+					"n": args.n
+				}
+			# self.device = args.device
+			# self.lm_id = args.lm_id
+			# self.chat = True
+			# self.llm_module = Agent(model=self.lm_id, device=self.device)
+			# self.sampling_params['model'] = self.lm_id
 
 		def lm_engine(source, lm_id, device):
-			
-			@backoff.on_exception(backoff.expo, OpenAIError)
+			# @backoff.on_exception(backoff.expo, OpenAIError)
+			@backoff.on_exception(backoff.expo, Exception)
 			def _generate(prompt, sampling_params):
 				usage = 0
 				if source == 'openai':
@@ -62,7 +89,29 @@ class LLM:
 					except OpenAIError as e:
 						print(e)
 						raise e
-				
+				elif source == 'llm_module':
+					try:
+						if self.chat:
+							prompt.insert(0,{"role":"system", "content":"You are a helper assistant."})
+							response = client.respond_once_all_args(
+                                messages=prompt, **sampling_params
+                            )
+							# response = SimpleNamespace(**response)
+							if self.debug:
+								with open(f"./chat_raw.json", 'a') as f:
+									f.write(json.dumps(response, indent=4))
+									f.write('\n')
+							generated_samples = [response['choices'][i]['message']['content'] for i in range(sampling_params['n'])]
+							if 'gpt-4-0125-preview' in self.lm_id or 'gpt-4o-2024-11-20' in self.lm_id:
+								usage = response['usage']['prompt_tokens'] * 0.01 / 1000 + response['usage']['completion_tokens'] * 0.03 / 1000
+							elif 'gpt-3.5-turbo-1106' in self.lm_id:
+								usage = response.usage.prompt_tokens * 0.0015 / 1000 + response.usage.completion_tokens * 0.002 / 1000
+						else:
+							raise ValueError(f"{lm_id} not available!")
+					except Exception as e:
+						print(e)
+						raise e
+
 				else:
 					raise ValueError("invalid source")
 				return generated_samples, usage

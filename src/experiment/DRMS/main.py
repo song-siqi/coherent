@@ -108,9 +108,13 @@ if __name__ == '__main__':
         else:
             failed_tasks.append(task_id)
 
-    write_log_to_file('average steps:', sum(steps_list)/len(steps_list) if len(steps_list) > 0 else None)
-    write_log_to_file('successful tasks:', success_tasks if len(success_tasks) > 0 else None)
-    write_log_to_file('failed tasks:', failed_tasks if len(failed_tasks) > 0 else None)
+    # write_log_to_file('average steps:', sum(steps_list)/len(steps_list) if len(steps_list) > 0 else None)
+    # write_log_to_file('successful tasks:', success_tasks if len(success_tasks) > 0 else None)
+    # write_log_to_file('failed tasks:', failed_tasks if len(failed_tasks) > 0 else None)
+
+    write_log_to_file(f'average steps: {sum(steps_list)/len(steps_list) if len(steps_list) > 0 else None}')
+    write_log_to_file(f'successful tasks: {success_tasks if len(success_tasks) > 0 else None}')
+    write_log_to_file(f'failed tasks: {failed_tasks if len(failed_tasks) > 0 else None}')
     print('average steps:', sum(steps_list)/len(steps_list) if len(steps_list) > 0 else None)
     print('successful tasks:', success_tasks if len(success_tasks) > 0 else None )
     print('failed tasks:', failed_tasks if len(failed_tasks) > 0 else None)    
