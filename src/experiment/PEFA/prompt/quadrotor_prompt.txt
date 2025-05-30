@@ -22,4 +22,4 @@ Note: quadrotor can only land on SURFACES with LANDABLE properties, otherwise it
 
 Note: Think of yourself as quadrotor, generating content in a first-person conversation.
 
-Let's think step by step.
+Let's think step by step, but you should strictly obey the rules above about the first sentence in the output, do not include "*" in the first sentence to affect output parsing.

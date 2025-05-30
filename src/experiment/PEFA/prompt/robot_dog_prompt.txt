@@ -36,4 +36,4 @@ Note: When the robot dog needs to transport multiple objects, you need to make s
 
 Note: Think of yourself as robot dog, generating content in a first-person conversation.
 
-Let's think step by step.
+Let's think step by step, but you should strictly obey the rules above about the first sentence in the output, do not include "*" in the first sentence to affect output parsing.

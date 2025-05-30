@@ -20,4 +20,4 @@ Note: if there is not an action in the available actionlist that can satisfy the
 
 Note: Think of yourself as robot arm, generating content in a first-person conversation.
 
-Let's think step by step.
+Let's think step by step, but you should strictly obey the rules above about the first sentence in the output, do not include "*" in the first sentence to affect output parsing.

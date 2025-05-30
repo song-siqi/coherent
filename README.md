@@ -29,13 +29,13 @@ conda create -n coherent python==3.10
 ```
 Install dependencies:
 ```bash
-pip install -r requirments.txt
+pip install -r requirement.txt
 ```
 ## Run
 Add your openai api_key and organization in `args.py` or `arguments.py`.
 For each methods in `src/experiment`， you can run the following command to perform the tasks in our benchmark:
 ```bash
-python main.py --env env0 --task 2
+python main.py --env env0 --task 2 --source llm_module
 ```
 For MCTS methods, you can run:
 ```bash
