@@ -118,7 +118,10 @@ class LLM_agent:
 			if node == self.grabbed_objects or node in self.reachable_objects:
 				self.unreached_objects.remove(node)
 			elif node['category'] == 'Rooms' or node['category'] == 'Agents' or node['category'] == 'Floor' or "HIGH_HEIGHT" in node['properties'] or 'ON_HIGH_SURFACE' in node['properties']:
-				self.unreached_objects.remove(node)  #The idea here is to find the places that the robotic dog has not reached, remove what it already has in its hand, remove what it is close to, remove the room, the floor, the agent itself, the high surface and what is on the high surface
+				self.unreached_objects.remove(node)
+		# NOTE: The idea here is to find the places that the robotic dog has not reached, 
+		# 		remove what it already has in its hand, remove what it is close to, remove the room, 
+		# 		the floor, the agent itself, the high surface and what is on the high surface
 
 		self.doors = []
 		self.next_rooms = []
